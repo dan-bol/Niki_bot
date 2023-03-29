@@ -7,7 +7,7 @@ def start_message(message):
 @bot.message_handler(commands = ['button'])
 def next_message(message):
   markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard = True)
-  item1 = telebot.types.KeyboardButton('Ютубчик'  )
+  item1 = telebot.types.KeyboardButton('Ютубчик')
   item2 = telebot.types.KeyboardButton('И-НЕТ')
   markup.add(item1, item2)
   bot.send_message(message.chat.id, 'Чо надо? Говори!', reply_markup = markup)
@@ -30,6 +30,8 @@ def message_reply(message):
     item8 = telebot.types.KeyboardButton('Назаaд')
     markup.add(item6, item7, item8)
     bot.send_message(message.chat.id,'Ок, выбирай спорт', reply_markup = markup) 
+  if message.text == 'Дзюдо':
+    bot.send_message(message.from_user.id, '[Дзюдо](https://www.youtube.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw)', parse_mode='Markdown') 
   if message.text == 'Назаaд':
     markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard = True)
     item3 = telebot.types.KeyboardButton('Спортишка')
